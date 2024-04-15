@@ -69,7 +69,7 @@ main = do
         mbListener <- Ref.read ref
         case mbListener of
           Just listener -> do
-            log "Removing listener from main button."
+            log "Removing listener from the main button."
             removeEventListener
               METypes.click
               listener
