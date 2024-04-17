@@ -202,8 +202,11 @@ recipes/%/web:
 .PHONY: %-web
 # Launches recipe in web browser
 %-web: $(call recipeDir,%) $(call webDir,%) %-indexCheck %-build
-> @echo === Launching $* in the web browser ===
-> parcel $(call webHtml,$*) --dist-dir $(call webDistDir,$*) --open
+> @echo === Launching x $* in the web browser ===
+# > parcel $(call webHtml,$*) --dist-dir $(call webDistDir,$*) --open
+
+# npx parcel ./recipes/AddRemoveEventListenerJs/web/index.html --dist-dir ./recipes/AddRemoveEventListenerJs/web-dist --open
+
 
 .PHONY: %-buildWeb
 # Uses parcel to quickly create an unminified build.
