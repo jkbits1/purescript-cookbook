@@ -205,8 +205,19 @@ recipes/%/web:
 > @echo === Launching x $* in the web browser ===
 # > parcel $(call webHtml,$*) --dist-dir $(call webDistDir,$*) --open
 
+# option --open doesn't work in codespace
+# https://stackoverflow.com/questions/77289077/what-causes-error-spawn-xdg-open-enoent-when-running-parcel-in-docker
+
 # npx parcel ./recipes/AddRemoveEventListenerJs/web/index.html --dist-dir ./recipes/AddRemoveEventListenerJs/web-dist --open
 
+# npx parcel ./recipes/AddRemoveEventListenerJs/web/index.html --dist-dir ./recipes/AddRemoveEventListenerJs/web-dist 
+
+# New for codespaces
+.PHONY: %-webcs
+# Launches recipe in web browser
+%-web: $(call recipeDir,%) $(call webDir,%) %-indexCheck %-build
+> @echo === Launching x $* in the codespace ===
+# > parcel $(call webHtml,$*) --dist-dir $(call webDistDir,$*) --open
 
 .PHONY: %-buildWeb
 # Uses parcel to quickly create an unminified build.
