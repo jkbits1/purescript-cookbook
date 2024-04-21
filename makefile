@@ -208,6 +208,9 @@ recipes/%/web:
 # option --open doesn't work in codespace
 # https://stackoverflow.com/questions/77289077/what-causes-error-spawn-xdg-open-enoent-when-running-parcel-in-docker
 
+# This version doesn't work, maybe some related alternative can.
+# 
+# make AddRemoveEventListenerJs-build-watch && npx parcel ./recipes/AddRemoveEventListenerJs/web/index.html --dist-dir ./recipes/AddRemoveEventListenerJs/web-dist
 
 # make AddRemoveEventListenerJs-build
 
@@ -221,11 +224,15 @@ recipes/%/web:
 # npx parcel ./recipes/AddRemoveEventListenerJs/web/index.html --dist-dir ./recipes/AddRemoveEventListenerJs/web-dist 
 
 # New for codespaces
-# .PHONY: %-webcs
-# # Launches recipe in web browser
-# %-web: $(call recipeDir,%) $(call webDir,%) %-indexCheck %-build
-# > @echo === Launching x $* in the codespace ===
-# > parcel $(call webHtml,$*) --dist-dir $(call webDistDir,$*) --open
+# currently build-watch is not an option (just as for -web)
+# needs two terminals, one for recipe-build-watch and one for recipe-webCs
+# 
+.PHONY: %-webCs
+# Launches recipe in web browser
+%-webCs: $(call recipeDir,%) $(call webDir,%) %-indexCheck %-build
+# %-webcs: $(call recipeDir,%) $(call webDir,%) %-indexCheck %-build-watch
+> @echo === Launching x $* in the codespace ===
+> parcel $(call webHtml,$*) --dist-dir $(call webDistDir,$*)
 
 .PHONY: %-buildWeb
 # Uses parcel to quickly create an unminified build.
