@@ -78,7 +78,7 @@ main = do
 
             Ref.write Nothing ref
           Nothing -> do
-            log "No listener is xb installed. Click the 'Add Listener' button to add it."
+            log "No listener is xc installed. Click the 'Add Listener' button to add it."
 
       addEventListener METypes.click removeMainListener false buttonRemoveEL
 
