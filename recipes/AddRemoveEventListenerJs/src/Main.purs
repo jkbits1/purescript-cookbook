@@ -31,6 +31,7 @@ main = do
   mbButtonMain <- querySelector (QuerySelector "#mainButton") docAsParent
   mbButtonRemove2nd <- querySelector (QuerySelector "#removeSecondApproach") docAsParent
   mbButtonTest1 <- querySelector (QuerySelector "#testButton1") docAsParent
+  mbButtonTest2 <- querySelector (QuerySelector "#testButton2") docAsParent
 
   case mbButtonAddEL, mbButtonRemoveEL, mbButtonMain, mbButtonRemove2nd, mbButtonTest1 of
     Just bAddEL, Just bRemoveEL, Just bMain, Just bRemove2nd, Just bButtonTest1 -> do
