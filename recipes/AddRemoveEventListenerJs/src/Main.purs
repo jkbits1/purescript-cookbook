@@ -33,8 +33,8 @@ main = do
   mbButtonTest1 <- querySelector (QuerySelector "#testButton1") docAsParent
   mbButtonTest2 <- querySelector (QuerySelector "#testButton2") docAsParent
 
-  case mbButtonAddEL, mbButtonRemoveEL, mbButtonMain, mbButtonRemove2nd, mbButtonTest1 of
-    Just bAddEL, Just bRemoveEL, Just bMain, Just bRemove2nd, Just bButtonTest1 -> do
+  case mbButtonAddEL, mbButtonRemoveEL, mbButtonMain, mbButtonRemove2nd, mbButtonTest1, mbButtonTest2 of
+    Just bAddEL, Just bRemoveEL, Just bMain, Just bRemove2nd, Just bButtonTest1, Just bButtonTest2 -> do
       let
         -- make it possible to add event listeners to these elements
         -- by changing their types from `Element` to `EventTarget`
@@ -43,6 +43,7 @@ main = do
         buttonMain = Element.toEventTarget bMain
         buttonRemove2nd = Element.toEventTarget bRemove2nd
         buttonTest1 = Element.toEventTarget bButtonTest1
+        buttonTest2 = Element.toEventTarget bButtonTest2
 
       -- In this first approach, we will add an event listener,
       -- and store a reference to that listener, so that we can
@@ -98,7 +99,7 @@ main = do
         removeListener
       addEventListener METypes.click remove2ndApproachListener false buttonRemove2nd
 
-    _, _, _, _, _ -> do
+    _, _, _, _, _, _ -> do
       log $
         "Could not get all three buttons. Please open an issue for this \
         \recipe on the PureScript cookbook."
