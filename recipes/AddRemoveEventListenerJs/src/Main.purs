@@ -99,9 +99,11 @@ main = do
         removeListener
       addEventListener METypes.click remove2ndApproachListener false buttonRemove2nd
 
+    -- With the new buttons, these underscores become unwieldy
+    -- and hard to count. 
     _, _, _, _, _, _ -> do
       log $
-        "Could not get all three buttons. Please open an issue for this \
+        "Could not get all the buttons. Please open an issue for this \
         \recipe on the PureScript cookbook."
 
 printMessage :: Event -> Effect Unit
