@@ -56,6 +56,7 @@ main = do
       -- :: Effect (Ref (Maybe EventListener))
       ref <- Ref.new Nothing
       
+      -- create the event listener
       -- :: Effect EventListener
       addMainListener <- eventListener \_ -> do
         -- :: Effect (Maybe EventListener)
@@ -80,9 +81,11 @@ main = do
             -- :: Effect Unit
             log "Listener already added. Not reinstalling listener."
 
+      -- add the event listener created above to dom
       -- :: Effect Unit
       addEventListener METypes.click addMainListener false buttonAddEL
 
+      -- create event listener
       -- :: Effect EventListener
       removeMainListener <- eventListener \_ -> do
         -- :: Effect (Maybe EventListener)
@@ -118,6 +121,7 @@ main = do
           "Better listener: this is a better way to add/remove \
           \an event listener."
 
+      -- add event listener created above to dom
       -- :: Effect EventListener
       remove2ndApproachListener <- eventListener \_ -> do
         -- :: Effect Unit
