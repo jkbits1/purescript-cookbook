@@ -138,6 +138,7 @@ main = do
       remove2ndApproachListener <- eventListener \_ -> do
         -- :: Effect Unit
         log "Now removing event listener using better approach"
+        -- :: Effect Unit
         removeListener
 
       -- :: Effect Unit
