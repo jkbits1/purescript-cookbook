@@ -18,6 +18,18 @@ import Web.HTML.Window (document)
 import Web.UIEvent.MouseEvent (MouseEvent, screenX, screenY)
 import Web.UIEvent.MouseEvent.EventTypes as METypes
 
+data Colour = Black | White
+
+data Piece = Rook | Knight | Bishop | King | Queen | Pawn
+
+data File = A | B | C | D | E | F | G | H
+
+data Row  = One | Two | Three | Four | Five | Six | Seven | Eight
+
+data Pos = Pos Piece Colour File Row 
+
+newPiece = Pos Rook Black A One
+
 main :: Effect Unit
 main = do
   -- get the document
