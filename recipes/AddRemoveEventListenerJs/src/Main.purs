@@ -18,6 +18,7 @@ import Web.HTML.Window (document)
 import Web.UIEvent.MouseEvent (MouseEvent, screenX, screenY)
 import Web.UIEvent.MouseEvent.EventTypes as METypes
 
+-- chess defs
 data Colour = Black | White
 
 data Piece = Rook | Knight | Bishop | King | Queen | Pawn
