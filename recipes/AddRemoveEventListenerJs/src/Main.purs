@@ -2,6 +2,7 @@ module AddRemoveEventListenerJs.Main where
 
 import Prelude
 
+-- for use with new defs
 -- import Data.Set ()
 
 import Data.Interpolate (i)
