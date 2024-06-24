@@ -1,5 +1,11 @@
 module AddRemoveEventListenerJs.Main where
 
+-- spago commands (run from main folder)
+
+-- spago -x recipes/AddRemoveEventListenerJs/spago.dhall test --main AddRemoveEventListenerJs.Main
+-- spago -x recipes/AddRemoveEventListenerJs/spago.dhall build
+-- spago -x recipes/AddRemoveEventListenerJs/spago.dhall repl
+
 import Prelude
 
 -- for use with new defs
